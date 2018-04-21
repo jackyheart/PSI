@@ -30,7 +30,7 @@ class ViewController: UIViewController {
                 case .success:
                     if let value = response.result.value {
                         let json = JSON(value)
-                        psiData.parseJSON(json: json)
+                        self.psiData.parseJSON(json: json)
                     }
                 case .failure(let error):
                     print(error)
