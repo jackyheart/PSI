@@ -6,7 +6,6 @@
 //  Copyright © 2018 Jacky Tjoa. All rights reserved.
 //
 
-import UIKit
 import SwiftyJSON
 
 class RegionMetadata {

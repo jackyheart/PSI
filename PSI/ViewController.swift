@@ -24,25 +24,24 @@ class ViewController: UIViewController {
         //MapView delegate
         mapView.delegate = self
         
-        //load data
-        Alamofire.request(urlPath).validate().responseJSON { (response) in
-            switch response.result {
-                case .success:
-                    if let value = response.result.value {
-                        let json = JSON(value)
-                        self.psiData.parseJSON(json: json)
-                        
-                        var annotations:[MapAnnotation] = []
-                        for regionMetadata in self.psiData.regionMetadata {
-                            let point = MapAnnotation(title: regionMetadata.name, subtitle: "", coordinate: CLLocationCoordinate2D(latitude: regionMetadata.latitude, longitude: regionMetadata.longitude))
-                            annotations.append(point)
-                        }
-                        
-                        self.mapView.addAnnotations(annotations)
-                    }
-                case .failure(let error):
-                    print(error)
+        //load data    
+        Network.shared.loadPSIData(success: { (response) in
+            
+            if let value = response.result.value {
+                let json = JSON(value)
+                self.psiData.parseJSON(json: json)
+                
+                var annotations:[MapAnnotation] = []
+                for regionMetadata in self.psiData.regionMetadata {
+                    let point = MapAnnotation(title: regionMetadata.name, subtitle: "", coordinate: CLLocationCoordinate2D(latitude: regionMetadata.latitude, longitude: regionMetadata.longitude))
+                    annotations.append(point)
+                }
+                
+                self.mapView.addAnnotations(annotations)
             }
+            
+        }) { (error) in
+            print(error)
         }
     }
 
