@@ -31,6 +31,14 @@ class ViewController: UIViewController {
                     if let value = response.result.value {
                         let json = JSON(value)
                         self.psiData.parseJSON(json: json)
+                        
+                        var annotations:[MapAnnotation] = []
+                        for regionMetadata in self.psiData.regionMetadata {
+                            let point = MapAnnotation(title: regionMetadata.name, subtitle: "", coordinate: CLLocationCoordinate2D(latitude: regionMetadata.latitude, longitude: regionMetadata.longitude))
+                            annotations.append(point)
+                        }
+                        
+                        self.mapView.addAnnotations(annotations)
                     }
                 case .failure(let error):
                     print(error)
@@ -47,7 +55,21 @@ class ViewController: UIViewController {
 extension ViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        return nil
+        if annotation is MKUserLocation {
+            return nil
+        } else {
+            let identifier = "marker"
+            var view:MKMarkerAnnotationView
+            
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView {
+                dequeuedView.annotation = annotation
+                view = dequeuedView
+            } else {
+                view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            }
+
+            return view
+        }
     }
 }
 
