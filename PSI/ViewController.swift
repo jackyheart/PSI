@@ -15,6 +15,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     let urlPath = "https://api.data.gov.sg/v1/environment/psi"
+    let psiData = PSIData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,21 +30,7 @@ class ViewController: UIViewController {
                 case .success:
                     if let value = response.result.value {
                         let json = JSON(value)
-                        
-                        let psiData = PSIData()
-                        
-                        //status
-                        psiData.status = json["api_info"]["status"].stringValue
-                        
-                        if json["items"].count > 0 {
-                            //timestamp
-                            let timestamp = json["items"][0]["timestamp"].stringValue
-                            psiData.timestamp = timestamp
-                            
-                            //updated timestamp
-                            let updatedTimestamp = json["items"][0]["update_timestamp"].stringValue
-                            psiData.updatedTimestamp = updatedTimestamp
-                        }
+                        psiData.parseJSON(json: json)
                     }
                 case .failure(let error):
                     print(error)
