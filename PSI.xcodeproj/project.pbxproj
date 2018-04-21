@@ -14,6 +14,7 @@
 		897A5FB5208B60A8009B9FD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 897A5FB4208B60A8009B9FD4 /* Assets.xcassets */; };
 		897A5FB8208B60A8009B9FD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897A5FB6208B60A8009B9FD4 /* LaunchScreen.storyboard */; };
 		897A5FC3208B60A8009B9FD4 /* PSITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897A5FC2208B60A8009B9FD4 /* PSITests.swift */; };
+		89A336F2208B64A800FB341B /* PSIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A336F1208B64A800FB341B /* PSIData.swift */; };
 		B5E71002E3A8A2B827874C32 /* Pods_PSI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB56834AAB8DD664906AE83C /* Pods_PSI.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		897A5FBE208B60A8009B9FD4 /* PSITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PSITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		897A5FC2208B60A8009B9FD4 /* PSITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSITests.swift; sourceTree = "<group>"; };
 		897A5FC4208B60A8009B9FD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89A336F1208B64A800FB341B /* PSIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSIData.swift; sourceTree = "<group>"; };
 		BB56834AAB8DD664906AE83C /* Pods_PSI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PSI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD56191CF3EFA608997B7C35 /* Pods-PSITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PSITests/Pods-PSITests.release.xcconfig"; sourceTree = "<group>"; };
 		EA6DC3B0366D32B01EC9BAD3 /* Pods-PSI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSI.release.xcconfig"; path = "Pods/Target Support Files/Pods-PSI/Pods-PSI.release.xcconfig"; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				897A5FAD208B60A7009B9FD4 /* AppDelegate.swift */,
 				897A5FAF208B60A7009B9FD4 /* ViewController.swift */,
+				89A336F1208B64A800FB341B /* PSIData.swift */,
 				897A5FB1208B60A7009B9FD4 /* Main.storyboard */,
 				897A5FB4208B60A8009B9FD4 /* Assets.xcassets */,
 				897A5FB6208B60A8009B9FD4 /* LaunchScreen.storyboard */,
@@ -313,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				897A5FB0208B60A7009B9FD4 /* ViewController.swift in Sources */,
+				89A336F2208B64A800FB341B /* PSIData.swift in Sources */,
 				897A5FAE208B60A7009B9FD4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,7 +480,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PSI/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.coolheart.PSI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -491,7 +498,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PSI/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.coolheart.PSI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -507,7 +517,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PSITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.coolheart.PSITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -524,7 +538,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PSITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.coolheart.PSITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController {
 
@@ -22,7 +23,24 @@ class ViewController: UIViewController {
         Alamofire.request(urlPath).validate().responseJSON { (response) in
             switch response.result {
                 case .success:
-                    print(response)
+                    if let value = response.result.value {
+                        let json = JSON(value)
+                        
+                        let psiData = PSIData()
+                        
+                        //status
+                        psiData.status = json["api_info"]["status"].stringValue
+                        
+                        if json["items"].count > 0 {
+                            //timestamp
+                            let timestamp = json["items"][0]["timestamp"].stringValue
+                            psiData.timestamp = timestamp
+                            
+                            //updated timestamp
+                            let updatedTimestamp = json["items"][0]["update_timestamp"].stringValue
+                            psiData.updatedTimestamp = updatedTimestamp
+                        }
+                    }
                 case .failure(let error):
                     print(error)
             }
