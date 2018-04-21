@@ -8,6 +8,10 @@
 
 import SwiftyJSON
 
+enum Readings:String {
+    case psi_twenty_four_hourly = "psi_twenty_four_hourly"
+}
+
 class RegionMetadata {
     var name = ""
     var latitude:Double = 0.0
