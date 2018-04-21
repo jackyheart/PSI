@@ -14,7 +14,6 @@ import SwiftyJSON
 class ViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
-    let urlPath = "https://api.data.gov.sg/v1/environment/psi"
     let psiData = PSIData()
     
     override func viewDidLoad() {
@@ -24,7 +23,7 @@ class ViewController: UIViewController {
         //MapView delegate
         mapView.delegate = self
         
-        //load data    
+        //load data
         Network.shared.loadPSIData(success: { (response) in
             
             if let value = response.result.value {
