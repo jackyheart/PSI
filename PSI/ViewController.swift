@@ -32,7 +32,14 @@ class ViewController: UIViewController {
                 
                 var annotations:[MapAnnotation] = []
                 for regionMetadata in self.psiData.regionMetadata {
+                    
                     let point = MapAnnotation(title: regionMetadata.name, subtitle: "", coordinate: CLLocationCoordinate2D(latitude: regionMetadata.latitude, longitude: regionMetadata.longitude))
+                    
+                    if let psi24 = self.psiData.readings["psi_twenty_four_hourly"] as? [String:Int] {
+                        let val = psi24[regionMetadata.name] ?? 0
+                        point.psi24Val = val
+                    }
+                    
                     annotations.append(point)
                 }
                 
@@ -56,6 +63,9 @@ extension ViewController: MKMapViewDelegate {
         if annotation is MKUserLocation {
             return nil
         } else {
+            
+            guard let annotation = annotation as? MapAnnotation else { return nil }
+            
             let identifier = "marker"
             var view:MKMarkerAnnotationView
             
@@ -65,7 +75,12 @@ extension ViewController: MKMapViewDelegate {
             } else {
                 view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             }
-
+            
+            if let psi24 = psiData.readings["psi_twenty_four_hourly"] as? [String:Int], let title = annotation.title {
+                view.glyphText = "\(psi24[title] ?? 0)"
+            }
+            view.markerTintColor = annotation.markerTintColor
+            
             return view
         }
     }
