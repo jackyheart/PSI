@@ -9,10 +9,11 @@
 import MapKit
 
 class MapAnnotation: NSObject, MKAnnotation {
-    let title: String?
-    let subtitle: String?
-    let coordinate: CLLocationCoordinate2D
-    var psi24Val = 0
+    var title: String?
+    var subtitle: String?
+    var coordinate: CLLocationCoordinate2D
+    var psi24Val:Float = 0
+    var regionKey = ""
     
     var markerTintColor: UIColor {
         switch psi24Val {
@@ -33,6 +34,7 @@ class MapAnnotation: NSObject, MKAnnotation {
         self.title = title
         self.subtitle = subtitle
         self.coordinate = coordinate
+        regionKey = title.lowercased()
         
         super.init()
     }

@@ -33,12 +33,24 @@ class ViewController: UIViewController {
                 var annotations:[MapAnnotation] = []
                 for regionMetadata in self.psiData.regionMetadata {
                     
-                    let point = MapAnnotation(title: regionMetadata.name, subtitle: "", coordinate: CLLocationCoordinate2D(latitude: regionMetadata.latitude, longitude: regionMetadata.longitude))
+                    let point = MapAnnotation(title: regionMetadata.name.capitalized, subtitle: "", coordinate: CLLocationCoordinate2D(latitude: regionMetadata.latitude, longitude: regionMetadata.longitude))
                     
-                    if let psi24 = self.psiData.readings[Readings.psi_twenty_four_hourly.rawValue] as? [String:Int] {
+                    //psi 24 hours reading
+                    if let psi24 = self.psiData.readings[Readings.psi_twenty_four_hourly.rawValue] as? [String:NSNumber] {
                         let val = psi24[regionMetadata.name] ?? 0
-                        point.psi24Val = val
+                        point.psi24Val = val.floatValue
                     }
+                    
+                    //subtitle
+                    var subtitle = "Readings:\n"
+                    for key in self.psiData.readings.keys {
+                        if let reading = self.psiData.readings[key] as? [String:NSNumber] {
+                            if let val = reading[regionMetadata.name] {
+                                subtitle += "\(key): \(val)\n"
+                            }
+                        }
+                    }
+                    point.subtitle = subtitle
                     
                     annotations.append(point)
                 }
@@ -74,12 +86,19 @@ extension ViewController: MKMapViewDelegate {
                 view = dequeuedView
             } else {
                 view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view.canShowCallout = true
             }
             
-            if let psi24 = psiData.readings[Readings.psi_twenty_four_hourly.rawValue] as? [String:Int], let title = annotation.title {
-                view.glyphText = "\(psi24[title] ?? 0)"
+            if let psi24 = psiData.readings[Readings.psi_twenty_four_hourly.rawValue] as? [String:NSNumber] {
+                view.glyphText = "\(psi24[annotation.regionKey] ?? 0)"
             }
             view.markerTintColor = annotation.markerTintColor
+            
+            let detailLabel = UILabel()
+            detailLabel.numberOfLines = 0
+            detailLabel.font = detailLabel.font.withSize(12)
+            detailLabel.text = annotation.subtitle
+            view.detailCalloutAccessoryView = detailLabel
             
             return view
         }
