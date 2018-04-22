@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E8EC8F6FEC20BC982A78958 /* Pods_PSITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFFF5A784AAC1821EBF6EA3 /* Pods_PSITests.framework */; };
+		895A5283208C4FEE00E5C113 /* LegendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895A5282208C4FEE00E5C113 /* LegendViewController.swift */; };
 		897A5FAE208B60A7009B9FD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897A5FAD208B60A7009B9FD4 /* AppDelegate.swift */; };
 		897A5FB0208B60A7009B9FD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897A5FAF208B60A7009B9FD4 /* ViewController.swift */; };
 		897A5FB3208B60A7009B9FD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897A5FB1208B60A7009B9FD4 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		0CFFF5A784AAC1821EBF6EA3 /* Pods_PSITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PSITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8159969A044A04FB75EF19E2 /* Pods-PSI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PSI/Pods-PSI.debug.xcconfig"; sourceTree = "<group>"; };
+		895A5282208C4FEE00E5C113 /* LegendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendViewController.swift; sourceTree = "<group>"; };
 		897A5FAA208B60A7009B9FD4 /* PSI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		897A5FAD208B60A7009B9FD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		897A5FAF208B60A7009B9FD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				897A5FAF208B60A7009B9FD4 /* ViewController.swift */,
 				89A336F1208B64A800FB341B /* PSIData.swift */,
 				89A336F3208B6CBF00FB341B /* MapAnnotation.swift */,
+				895A5282208C4FEE00E5C113 /* LegendViewController.swift */,
 				89A336F5208B702000FB341B /* Network.swift */,
 				897A5FB1208B60A7009B9FD4 /* Main.storyboard */,
 				897A5FB4208B60A8009B9FD4 /* Assets.xcassets */,
@@ -322,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89A336F6208B702000FB341B /* Network.swift in Sources */,
+				895A5283208C4FEE00E5C113 /* LegendViewController.swift in Sources */,
 				897A5FB0208B60A7009B9FD4 /* ViewController.swift in Sources */,
 				89A336F2208B64A800FB341B /* PSIData.swift in Sources */,
 				897A5FAE208B60A7009B9FD4 /* AppDelegate.swift in Sources */,

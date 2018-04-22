@@ -24,6 +24,20 @@ class ViewController: UIViewController {
         mapView.delegate = self
         
         //load data
+        loadData()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+}
+
+//MARK: - Helpers
+
+extension ViewController {
+    
+    func loadData() {
         Network.shared.loadPSIData(success: { (response) in
             
             if let value = response.result.value {
@@ -62,12 +76,9 @@ class ViewController: UIViewController {
             print(error)
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }
+
+//MARK: - MKMapViewDelegate
 
 extension ViewController: MKMapViewDelegate {
     
