@@ -8,11 +8,27 @@
 
 import Quick
 import Nimble
+import SwiftyJSON
 @testable import PSI
 
 class PSITests: QuickSpec {
     
+    var psiData:PSIData!
+
     override func spec() {
-       
+        
+        beforeEach() {
+            self.psiData = PSIData()
+            let bundle = Bundle(for: type(of: self))
+            if let url = bundle.url(forResource:"sample", withExtension:"json") {
+                do {
+                    let jsonData = try Data(contentsOf: url)
+                    let json = try JSON(data:jsonData)
+                    self.psiData.parseJSON(json: json)
+                } catch {
+                    print(error)
+                }
+            }
+        }
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2E8EC8F6FEC20BC982A78958 /* Pods_PSITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFFF5A784AAC1821EBF6EA3 /* Pods_PSITests.framework */; };
 		895A5283208C4FEE00E5C113 /* LegendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895A5282208C4FEE00E5C113 /* LegendViewController.swift */; };
+		895A5285208C52F900E5C113 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = 895A5284208C52F900E5C113 /* sample.json */; };
 		897A5FAE208B60A7009B9FD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897A5FAD208B60A7009B9FD4 /* AppDelegate.swift */; };
 		897A5FB0208B60A7009B9FD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897A5FAF208B60A7009B9FD4 /* ViewController.swift */; };
 		897A5FB3208B60A7009B9FD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897A5FB1208B60A7009B9FD4 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		0CFFF5A784AAC1821EBF6EA3 /* Pods_PSITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PSITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8159969A044A04FB75EF19E2 /* Pods-PSI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PSI/Pods-PSI.debug.xcconfig"; sourceTree = "<group>"; };
 		895A5282208C4FEE00E5C113 /* LegendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendViewController.swift; sourceTree = "<group>"; };
+		895A5284208C52F900E5C113 /* sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
 		897A5FAA208B60A7009B9FD4 /* PSI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		897A5FAD208B60A7009B9FD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		897A5FAF208B60A7009B9FD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				897A5FC2208B60A8009B9FD4 /* PSITests.swift */,
+				895A5284208C52F900E5C113 /* sample.json */,
 				897A5FC4208B60A8009B9FD4 /* Info.plist */,
 			);
 			path = PSITests;
@@ -235,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				895A5285208C52F900E5C113 /* sample.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
