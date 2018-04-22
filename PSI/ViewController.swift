@@ -43,38 +43,46 @@ extension ViewController {
             if let value = response.result.value {
                 let json = JSON(value)
                 self.psiData.parseJSON(json: json)
-                
-                var annotations:[MapAnnotation] = []
-                for regionMetadata in self.psiData.regionMetadata {
-                    
-                    let point = MapAnnotation(title: regionMetadata.name.capitalized, subtitle: "", coordinate: CLLocationCoordinate2D(latitude: regionMetadata.latitude, longitude: regionMetadata.longitude))
-                    
-                    //psi 24 hours reading
-                    if let psi24 = self.psiData.readings[Readings.psi_twenty_four_hourly.rawValue] as? [String:NSNumber] {
-                        let val = psi24[regionMetadata.name] ?? 0
-                        point.psi24Val = val.floatValue
-                    }
-                    
-                    //subtitle
-                    var subtitle = "Readings:\n"
-                    for key in self.psiData.readings.keys {
-                        if let reading = self.psiData.readings[key] as? [String:NSNumber] {
-                            if let val = reading[regionMetadata.name] {
-                                subtitle += "\(key): \(val)\n"
-                            }
-                        }
-                    }
-                    point.subtitle = subtitle
-                    
-                    annotations.append(point)
-                }
-                
-                self.mapView.addAnnotations(annotations)
+                self.addAnnotationsToMap(psiData: self.psiData)
             }
             
         }) { (error) in
             print(error)
         }
+    }
+    
+    func addAnnotationsToMap(psiData: PSIData) {
+        
+        var annotations:[MapAnnotation] = []
+        for regionMetadata in psiData.regionMetadata {
+            
+            if regionMetadata.name == Region.national.rawValue {
+                continue
+            }
+            
+            let point = MapAnnotation(title: regionMetadata.name.capitalized, subtitle: "", coordinate: CLLocationCoordinate2D(latitude: regionMetadata.latitude, longitude: regionMetadata.longitude))
+            
+            //psi 24 hours reading
+            if let psi24 = psiData.readings[Readings.psi_twenty_four_hourly.rawValue] as? [String:NSNumber] {
+                let val = psi24[regionMetadata.name] ?? 0
+                point.psi24Val = val.floatValue
+            }
+            
+            //subtitle
+            var subtitle = "Readings:\n"
+            for key in psiData.readings.keys {
+                if let reading = psiData.readings[key] as? [String:NSNumber] {
+                    if let val = reading[regionMetadata.name] {
+                        subtitle += "\(key): \(val)\n"
+                    }
+                }
+            }
+            point.subtitle = subtitle
+            
+            annotations.append(point)
+        }
+        
+        self.mapView.addAnnotations(annotations)
     }
 }
 

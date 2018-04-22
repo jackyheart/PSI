@@ -12,6 +12,15 @@ enum Readings:String {
     case psi_twenty_four_hourly = "psi_twenty_four_hourly"
 }
 
+enum Region:String {
+    case east = "east"
+    case west = "west"
+    case central = "central"
+    case north = "north"
+    case south = "south"
+    case national = "national"
+}
+
 class RegionMetadata {
     var name = ""
     var latitude:Double = 0.0
