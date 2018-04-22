@@ -21,8 +21,31 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OqZ-HP-Juz">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TAX-xK-GRC">
+                                <rect key="frame" x="16" y="619" width="313" height="29"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="TJ7-Lq-3ct"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onSegmentedChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="qHj-OO-LtZ"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HXb-wi-efU">
+                                <rect key="frame" x="337" y="619" width="38" height="48"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="QfY-po-QBz"/>
+                                    <constraint firstAttribute="height" constant="48" id="ZZ0-Ok-U2O"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDO-p2-2c5">
-                                <rect key="frame" x="337" y="625" width="22" height="22"/>
+                                <rect key="frame" x="345" y="632" width="22" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="22" id="XDK-Lf-Wwv"/>
                                     <constraint firstAttribute="height" constant="22" id="r1V-b0-SQ0"/>
@@ -36,10 +59,15 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OqZ-HP-Juz" secondAttribute="trailing" id="3Qa-z4-qQq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OqZ-HP-Juz" secondAttribute="bottom" id="OSH-co-OEw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HXb-wi-efU" secondAttribute="trailing" id="SMK-N1-aL3"/>
                             <constraint firstItem="OqZ-HP-Juz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VfC-sT-ElA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YDO-p2-2c5" secondAttribute="bottom" constant="20" id="X6y-b5-2wc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YDO-p2-2c5" secondAttribute="bottom" constant="13" id="X6y-b5-2wc"/>
+                            <constraint firstItem="TAX-xK-GRC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bwi-G8-N5e"/>
+                            <constraint firstItem="YDO-p2-2c5" firstAttribute="leading" secondItem="TAX-xK-GRC" secondAttribute="trailing" constant="16" id="djU-5M-xTC"/>
                             <constraint firstItem="OqZ-HP-Juz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jIG-bW-ce5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YDO-p2-2c5" secondAttribute="trailing" constant="16" id="lfx-Pv-96J"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YDO-p2-2c5" secondAttribute="trailing" constant="8" id="lfx-Pv-96J"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HXb-wi-efU" secondAttribute="bottom" id="uVo-NK-g54"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TAX-xK-GRC" secondAttribute="bottom" constant="20" id="xtB-LT-rub"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

@@ -33,6 +33,23 @@ class ViewController: UIViewController {
     }
 }
 
+//MARK: - IBActions
+
+extension ViewController {
+    
+    @IBAction func onSegmentedChanged(_ sender: Any) {
+        let segmentControl = sender as! UISegmentedControl
+        switch segmentControl.selectedSegmentIndex {
+            case 1:
+                mapView.mapType = .satellite
+            case 2:
+                mapView.mapType = .hybrid
+            default:
+                mapView.mapType = .standard
+        }
+    }
+}
+
 //MARK: - Helpers
 
 extension ViewController {
