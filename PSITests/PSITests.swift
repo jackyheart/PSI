@@ -38,9 +38,15 @@ class PSITests: QuickSpec {
         
         describe("onMapLoaded") {
             context("whenAnnotationsAreAdded") {
+                
                 it("shouldShowFiveAnnotations") {
                     viewController.addAnnotationsToMap(psiData: psiData)
                     expect(viewController.mapView.annotations.count).to(equal(5))
+                }
+                
+                it("shouldContainsEastWestCentralNorthAndSouth") {
+                    viewController.addAnnotationsToMap(psiData: psiData)
+                    expect(viewController.mapView.annotations.map { $0.title??.lowercased() }).to(contain("west", "east", "central", "north", "south"))
                 }
             }
         }
